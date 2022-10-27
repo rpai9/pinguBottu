@@ -3,6 +3,8 @@ import logging.config
 import os
 import subprocess
 
+from playsound import playsound
+
 
 def main():
     if not os.path.isdir("./logs"):
@@ -19,9 +21,9 @@ def main():
                 res = subprocess.call(["ping", "-c", "3", ping])
                 if res == 0:
                     logging.info(f" {ping} is pinging.\n")
-                    subprocess.call(["afplay", "./media/Alarm.wav"])
-                    subprocess.call(["afplay", "./media/Alarm.wav"])
-                    subprocess.call(["afplay", "./media/Alarm.wav"])
+                    playsound('./media/Alarm.wav')
+                    playsound('./media/Alarm.wav')
+                    playsound('./media/Alarm.wav')
                 elif res == 2:
                     logging.info(f"{ping} is not responding.\n")
                 else:
